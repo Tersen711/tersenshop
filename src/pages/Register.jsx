@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LayoutComponents from "../components/LayoutComponents";
+import { Breadcrumb  } from 'antd';
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -23,6 +24,13 @@ const Register = () => {
   }
   return (
     <LayoutComponents>
+       <Breadcrumb
+            style={{
+              margin: "16px 0",
+            }}
+          >
+            <Breadcrumb.Item>Sign Up</Breadcrumb.Item>
+          </Breadcrumb>
       <div className="col-sm-6 offset-sm-3">
         <h1>Register Page</h1>
         <br />
