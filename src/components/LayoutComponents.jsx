@@ -3,12 +3,14 @@ import {
   NotificationOutlined,
   ShopOutlined,
   InfoCircleOutlined,
+  CommentOutlined,
+  CustomerServiceOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, theme, Space} from "antd";
+import { Layout, Menu, theme, Space, FloatButton } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from '.././images/logo.png';
-
+import Logo from ".././images/logo.png";
 
 function getItem(label, key, icon, children) {
   return {
@@ -18,13 +20,14 @@ function getItem(label, key, icon, children) {
     children,
   };
 }
-const { Header, Content, Sider, Footer  } = Layout;
+const { Header, Content, Sider, Footer } = Layout;
 const items2 = [
-  getItem((<Link to="/">Main</Link>), "1", <LaptopOutlined />),
-  getItem((<Link to="/contacts">Contacts</Link>), "2", <NotificationOutlined />),
-  getItem((<Link to="/categories">Categories</Link>), "3", <ShopOutlined />),
-  getItem((<Link to="/about">About US</Link>), "4", <InfoCircleOutlined />),
-]
+  getItem(<Link to="/">Main</Link>, "1", <LaptopOutlined />),
+  getItem(<Link to="/contacts">Contacts</Link>, "2", <NotificationOutlined />),
+  getItem(<Link to="/categories">Categories</Link>, "3", <ShopOutlined />),
+  getItem(<Link to="/about">About US</Link>, "4", <InfoCircleOutlined />),
+  getItem(<Link to="/cart">Cart</Link>, "4", <ShoppingCartOutlined />),
+];
 const LayoutComponents = (props) => {
   const { children } = props;
 
@@ -33,20 +36,24 @@ const LayoutComponents = (props) => {
   } = theme.useToken();
   return (
     <Layout>
-      <Header className="header" style={{ display: "flex"}}>
-      <Space size={'large'}>
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt={'Logo'} width={'70px'} height={'50px'} />
-          </Link>
-        </div>
-        <div className="register">
-          <Link to="/register" className="btn btn-light text-black">Sign Up</Link>
-        </div>
-        <div className="login">
-          <Link to="/login" className="btn btn-primary">Sign In</Link>
-        </div>
-      </Space>
+      <Header className="header" style={{ display: "flex" }}>
+        <Space size={"large"}>
+          <div className="logo">
+            <Link to="/">
+              <img src={Logo} alt={"Logo"} width={"70px"} height={"50px"} />
+            </Link>
+          </div>
+          <div className="register">
+            <Link to="/register" className="btn btn-light text-black">
+              Sign Up
+            </Link>
+          </div>
+          <div className="login">
+            <Link to="/login" className="btn btn-primary">
+              Sign In
+            </Link>
+          </div>
+        </Space>
       </Header>
       <Layout>
         <Sider
@@ -71,8 +78,6 @@ const LayoutComponents = (props) => {
             padding: "0 24px 24px",
           }}
         >
-          
-          
           <Content
             style={{
               padding: 24,
@@ -85,7 +90,30 @@ const LayoutComponents = (props) => {
           </Content>
         </Layout>
       </Layout>
-      <Footer style={{ textAlign: 'center' }}>Online Shop ©2023 Created by Tersen</Footer>
+      <FloatButton.Group
+        trigger="click"
+        type="primary"
+        style={{
+          right: 94,
+          bottom: 30,
+        }}
+        icon={<ShoppingCartOutlined />}
+      ></FloatButton.Group>
+      <FloatButton.Group
+        trigger="hover"
+        type="primary"
+        style={{
+          right: 40,
+          bottom: 30,
+        }}
+        icon={<CustomerServiceOutlined />}
+      >
+        <FloatButton />
+        <FloatButton icon={<CommentOutlined />} />
+      </FloatButton.Group>
+      <Footer style={{ textAlign: "center" }}>
+        Online Shop ©2023 Created by Tersen
+      </Footer>
     </Layout>
   );
 };

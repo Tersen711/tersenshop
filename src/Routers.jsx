@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Contacts from "./pages/Contacts";
 import Categories from "./pages/Categories";
 import AboutUs from "./pages/AboutUs";
+import Cart from "./pages/Cart";
 
 export default function Routers() {
   return (
@@ -17,6 +18,7 @@ export default function Routers() {
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/categories" element={<Categories />} />
       <Route path = "/about" element={<AboutUs />} />
+      <Route path = "/cart" element={<Cart />} />
     </Routes>
     // </Sidebar>
   );
