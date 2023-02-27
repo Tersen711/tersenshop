@@ -14,6 +14,12 @@ const AboutUs = () => {
             <Breadcrumb.Item>About Us</Breadcrumb.Item>
           </Breadcrumb>
           <Divider />
+          <div style={{
+        marginTop: 13,
+        marginRight: 26,
+        marginBottom: 13,
+        marginLeft: 26
+              }}>
       <Space
     direction="vertical"
     size="large"
@@ -27,6 +33,7 @@ const AboutUs = () => {
 <br /><ScheduleOutlined style={{width: '3em'}}/>Мы ориентируемся на европейские стандарты для эко продукции. Забота о вас и польза наших продуктов это наш приоритет</h3>
 
 </Space>
+</div>
 <Divider />
 
     </LayoutComponents>

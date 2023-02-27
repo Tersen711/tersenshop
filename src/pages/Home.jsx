@@ -2,7 +2,11 @@ import React from "react";
 import LayoutComponents from "../components/LayoutComponents";
 import { Breadcrumb, Card, Col, Row, Divider } from "antd";
 import Carousel from "better-react-carousel";
-import { ShoppingCartOutlined, LikeOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
+import products from '../products.json';
+import './Home.css'
 // import Link from "antd/es/typography/Link";
 // const contentStyle = {
 //   height: '300px',
@@ -13,8 +17,15 @@ import { ShoppingCartOutlined, LikeOutlined } from "@ant-design/icons";
 // };
 const { Meta } = Card;
 const Home = () => {
+  const { loading, error} = useFetch("http://localhost:1337/product")
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+  
   return (
+    
     <LayoutComponents>
+
       <Breadcrumb
         style={{
           margin: "16px 0",
@@ -70,7 +81,7 @@ const Home = () => {
       <Divider />
 
       <br />
-
+      
       <h3
         style={{
           fontFamily: "Hanalei Fill",
@@ -88,7 +99,31 @@ const Home = () => {
       <h3 style={{ fontFamily: "Hanalei Fill", color: "red", fontSize: "3em" }}>
         Новинки и акции
       </h3>
+      
       <Divider />
+
+      <div>
+  {products.map(product => {
+    return (
+      <div key={product.id}>
+        <img src={product.image} alt={`Preview of ${product.title}`} />
+        <h3>{ product.title }</h3>
+        <p>{ product.description }</p>
+        <p>${ product.price }</p>
+        <Link to="/cart">
+          <button 
+          data-item-id={product.id}
+          data-item-image={product.image}
+          data-item-name={product.title}
+          data-item-price={product.price}>
+            Add to Cart
+            </button>
+        </Link>
+      </div>
+    );
+  })}
+</div>
+
       <Row gutter={16}>
         <Col span={8}>
           <Card
@@ -103,9 +138,18 @@ const Home = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="500$" />
+            <Meta title="NewNike" description="500$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }}>Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -123,7 +167,16 @@ const Home = () => {
           >
             <Meta title="Yezzy 350z" description="89$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -141,7 +194,16 @@ const Home = () => {
           >
             <Meta title="Air Force 1" description="115$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Divider />
@@ -160,7 +222,16 @@ const Home = () => {
           >
             <Meta title="Nike && Balenciaga" description="280$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -176,9 +247,18 @@ const Home = () => {
               />
             }
           >
-            <Meta title="Nike Zoom" description="98$" />
+            <Meta title="Nike Air Zoom" description="98$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -196,7 +276,16 @@ const Home = () => {
           >
             <Meta title="Nike Air Max 720" description="127$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
       </Row>

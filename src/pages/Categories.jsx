@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import LayoutComponents from "../components/LayoutComponents";
 import { Card, Col, Row, Breadcrumb, Divider } from "antd";
-import { ShoppingCartOutlined, LikeOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined} from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 const Categories = () => {
-  const [cart, setCart] = useState([]);
-  const [itemIndex, setitemIndex] = useState(1);
   return (
     <LayoutComponents>
       <Breadcrumb
@@ -33,17 +32,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="500$" />
-            <>
-              <ShoppingCartOutlined
-                style={{ width: "3em" }}
-                onClick={() => {
-                  setCart([...cart, `  ${itemIndex}`]);
-                  setitemIndex(itemIndex + 1);
-                }}
-              />
-            </>
-            <LikeOutlined style={{ width: "3em" }} />
+            <Meta title="NewNike" description="500$" />
+            <ShoppingCartOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -59,9 +59,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="89$" />
+            <Meta title="Yezzy 350z" description="89$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -77,9 +86,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="115$" />
+            <Meta title="Air Force 1" description="115$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Divider />
@@ -96,9 +114,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="280$" />
+            <Meta title="Nike && Balenciaga" description="280$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -114,9 +141,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="98$" />
+            <Meta title="Nike Air Zoom" description="98$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
         <Col span={8}>
@@ -132,9 +168,18 @@ const Categories = () => {
               />
             }
           >
-            <Meta title="Europe Street beat" description="127$" />
+            <Meta title="Nike Air Max 270" description="127$" />
             <ShoppingCartOutlined style={{ width: "3em" }} />
-            <LikeOutlined style={{ width: "3em" }} />
+            <Link to="/cart"><button style={{
+              background: "#ef4e42",
+              color: "#fff",
+              fontSize: 12,
+              textTransform: "uppercase",
+              paddingTop: 8,
+              paddingRight: 16,
+              paddingBottom: 8,
+              paddingLeft: 16,
+            }} >Quick add</button></Link>
           </Card>
         </Col>
       </Row>
