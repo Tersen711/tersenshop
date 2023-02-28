@@ -5,7 +5,6 @@ import Carousel from "better-react-carousel";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
-import products from '../products.json';
 import './Home.css'
 // import Link from "antd/es/typography/Link";
 // const contentStyle = {
@@ -17,6 +16,7 @@ import './Home.css'
 // };
 const { Meta } = Card;
 const Home = () => {
+
   const { loading, error} = useFetch("http://localhost:1337/product")
 
   if (loading) return <p>Loading...</p>
@@ -25,7 +25,7 @@ const Home = () => {
   return (
     
     <LayoutComponents>
-
+      
       <Breadcrumb
         style={{
           margin: "16px 0",
@@ -101,28 +101,6 @@ const Home = () => {
       </h3>
       
       <Divider />
-
-      <div>
-  {products.map(product => {
-    return (
-      <div key={product.id}>
-        <img src={product.image} alt={`Preview of ${product.title}`} />
-        <h3>{ product.title }</h3>
-        <p>{ product.description }</p>
-        <p>${ product.price }</p>
-        <Link to="/cart">
-          <button 
-          data-item-id={product.id}
-          data-item-image={product.image}
-          data-item-name={product.title}
-          data-item-price={product.price}>
-            Add to Cart
-            </button>
-        </Link>
-      </div>
-    );
-  })}
-</div>
 
       <Row gutter={16}>
         <Col span={8}>

@@ -8,7 +8,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme, Space, FloatButton } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from ".././images/logo.png";
 
@@ -30,7 +30,6 @@ const items2 = [
 ];
 const LayoutComponents = (props) => {
   const { children } = props;
-
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -52,6 +51,19 @@ const LayoutComponents = (props) => {
             <Link to="/login" className="btn btn-primary">
               Sign In
             </Link>
+          </div>
+          <div className="Cart">
+            <span>
+              <ShoppingCartOutlined style={{
+                cursor: "pointer",
+                fontSize: 32,
+                color: "white",
+                fontWeight: "bold",
+                borderRadius: 5,
+                position: "relative",
+
+              }}/>
+              </span>
           </div>
         </Space>
       </Header>
@@ -90,43 +102,6 @@ const LayoutComponents = (props) => {
           </Content>
         </Layout>
       </Layout>
-      <FloatButton.Group
-        trigger="click"
-        type="primary"
-        style={{
-          right: 94,
-          bottom: 30,
-          width: 350,
-          borderTopWidth: 2,
-          borderRightWidth: 2,
-          borderBottomWidth: 2,
-          borderLeftWidth: 2,
-          borderTopColor: "rgb(41, 43, 131)",
-          borderRightColor: "rgb(41, 43, 131)",
-          borderBottomColor: "rgb(41, 43, 131)",
-          borderLeftColor: "rgb(41, 43, 131)",
-        }}
-        height= "auto"
-        position= "fixed"
-        icon={<ShoppingCartOutlined />}
-      ><h4 style={{
-        paddingTop: 15.2,
-        paddingRight: 16,
-        paddingBottom: 15.2,
-        paddingLeft: 16,
-        fontWeight: 700,
-        borderBottomWidth: 2,
-        borderBottomStyle: "solid",
-        borderBottomColor: "#292b83",
-        color: "#292b83",
-        fontSize: 20,
-        }}>Your Shopping Cart</h4>
-      <p style={{
-        padding: 20,
-        color:"#292b83",
-        marginTop: 0,
-        marginBottom: 16}} >You have no items in your shopping cart, start adding some!</p>
-      </FloatButton.Group>
       <FloatButton.Group
         trigger="hover"
         type="primary"
