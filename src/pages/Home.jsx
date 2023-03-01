@@ -1,9 +1,7 @@
 import React from "react";
-import LayoutComponents from "../components/LayoutComponents";
 import { Breadcrumb, Card, Col, Row, Divider } from "antd";
 import Carousel from "better-react-carousel";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import './Home.css'
 // import Link from "antd/es/typography/Link";
@@ -17,14 +15,14 @@ import './Home.css'
 const { Meta } = Card;
 const Home = () => {
 
-  const { loading, error} = useFetch("http://localhost:1337/product")
+  // const { loading, error} = useFetch("http://localhost:1337/product")
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
+  // if (loading) return <p>Loading...</p>
+  // if (error) return <p>Error :(</p>
   
   return (
     
-    <LayoutComponents>
+    <>
       
       <Breadcrumb
         style={{
@@ -267,7 +265,7 @@ const Home = () => {
           </Card>
         </Col>
       </Row>
-    </LayoutComponents>
+    </>
   );
 };
 

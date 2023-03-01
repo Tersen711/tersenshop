@@ -8,7 +8,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme, Space, FloatButton } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from ".././images/logo.png";
 
@@ -26,13 +26,16 @@ const items2 = [
   getItem(<Link to="/contacts">Contacts</Link>, "2", <NotificationOutlined />),
   getItem(<Link to="/categories">Categories</Link>, "3", <ShopOutlined />),
   getItem(<Link to="/about">About US</Link>, "4", <InfoCircleOutlined />),
-  getItem(<Link to="/cart">Cart</Link>, "4", <ShoppingCartOutlined />),
+  getItem(<Link to="/cart">Cart</Link>, "5", <ShoppingCartOutlined />),
 ];
 const LayoutComponents = (props) => {
-  const { children } = props;
+  
+  const { children, size } = props;
+  
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
   return (
     <Layout>
       <Header className="header" style={{ display: "flex" }}>
@@ -64,6 +67,11 @@ const LayoutComponents = (props) => {
 
               }}/>
               </span>
+              <span style={{
+                color: "white",
+                fontWeight: "bold",
+                position: "relative"
+            }}>{size}</span>
           </div>
         </Space>
       </Header>

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Cards = ({item, handleClick}) => {
-  const {id, title, description, price, img} = item;
+const Cards = ({item, handleAddProduct}) => {
+  const { title, description, price, img} = item;
     return (
         <div className='cards'>
             <div className='image_box'>
@@ -11,7 +11,7 @@ const Cards = ({item, handleClick}) => {
                 <p>{title}</p>
                 <p>{description}</p>
                 <p>Price - {price}$</p>
-                <button onClick={()=>handleClick(item)}>Add to Cart</button>
+                <button onClick={()=>handleAddProduct(item)}>Add to Cart</button>
             </div>
         </div>
   );

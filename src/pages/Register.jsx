@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import LayoutComponents from "../components/LayoutComponents";
-import { Breadcrumb  } from 'antd';
-
+import { Breadcrumb, Form  } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+const onFinish = (values) => {
+  console.log('Success:', values);
+};
+const onFinishFailed = (errorInfo) => {
+  console.log('Failed:', errorInfo);
+};
 const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +28,7 @@ const Register = () => {
     // console.warn("result", result)
   }
   return (
-    <LayoutComponents>
+    <>
        <Breadcrumb
             style={{
               margin: "16px 0",
@@ -34,14 +39,34 @@ const Register = () => {
       <div className="col-sm-6 offset-sm-3">
         <h1>Register Page</h1>
         <br />
+        <Form
+    name="basic"
+    onFinish={onFinish}
+    onFinishFailed={onFinishFailed}
+    autoComplete="off"
+  >
+        <Form.Item
+        name = "name"
+        rules ={[{
+          required: true,
+          message: 'Please input your username!'
+        }]}>
         <input
+        prefix={<UserOutlined className="site-form-item-icon" />}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="form-control"
-          placeholder="name"
+          placeholder="username"
         />
+        </Form.Item>
         <br />
+        <Form.Item
+        name = "password"
+        rules ={[{
+          required: true,
+          message: 'Please input your password!'
+        }]}>
         <input
           type="password"
           value={password}
@@ -49,7 +74,14 @@ const Register = () => {
           className="form-control"
           placeholder="password"
         />
+        </Form.Item>
         <br />
+        <Form.Item
+        name = "email"
+        rules ={[{
+          required: true,
+          message: 'Please input your email!'
+        }]}>
         <input
           type="text"
           value={email}
@@ -57,12 +89,16 @@ const Register = () => {
           className="form-control"
           placeholder="email"
         />
+        </Form.Item>
         <br />
+        <Form.Item>
         <button onClick={signUp} className="btn btn-primary">
           Sign Up
         </button>
+        </Form.Item>
+        </Form>
       </div>
-    </LayoutComponents>
+    </>
   );
 };
 

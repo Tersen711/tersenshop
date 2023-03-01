@@ -12,7 +12,7 @@ import Cart from "./pages/Cart";
 // import ConnectPage from "./containers/ConnectPage";
 // import NotFoundPage from "./containers/NotFound";
 
-export default function Routers() {
+export default function Routers({handleAddProduct}) {
   return (
     // <Sidebar>
     <Routes>
@@ -21,7 +21,7 @@ export default function Routers() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/contacts" element={<Contacts />} />
-      <Route path="/categories" element={<Categories />} />
+      <Route path="/categories" element={<Categories handleAddProduct={handleAddProduct} />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/cart" element={<Cart />} />
       {/* <Route exact path="/connect/:provider" component={<ConnectPage />} />

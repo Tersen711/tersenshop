@@ -1,5 +1,4 @@
 import React from "react";
-import LayoutComponents from "../components/LayoutComponents";
 import {
   PhoneOutlined,
   InstagramOutlined,
@@ -8,7 +7,7 @@ import {
 import { QRCode, Row, Breadcrumb, Divider } from "antd";
 const Contacts = () => {
   return (
-    <LayoutComponents>
+    <>
       <Breadcrumb
         style={{
           margin: "16px 0",
@@ -63,7 +62,7 @@ const Contacts = () => {
       </h6>
       </div>
       <Divider />
-    </LayoutComponents>
+    </>
   );
 };
 
